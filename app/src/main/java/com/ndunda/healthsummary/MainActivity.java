@@ -116,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
         cal.clear(Calendar.MILLISECOND);
 
 
-        for (int k = 0; k <= 6; k++) {
+        for (int k = 1; k <= 7; k++) {
             readTodayStepCountData(cal.getTimeInMillis(), DateFormat.format("EEEE", cal).toString(), false);
             cal.add(Calendar.DATE, 1);
         }
 
-        for (int k = 0; k <= day_of_week_today; k++) {
+        for (int k = 1; k <= day_of_week_today; k++) {
             readTodayStepCountData(cal.getTimeInMillis(), DateFormat.format("EEEE", cal).toString(), true);
             cal.add(Calendar.DATE, 1);
         }
@@ -168,14 +168,14 @@ public class MainActivity extends AppCompatActivity {
                             totalStepsLastWeek += stepsCount;
                         }
 
-                        int avgThisWeek = totalSteps / (day_of_week_today + 1);
+                        int avgThisWeek = totalSteps / (day_of_week_today);
                         int avgLastweek = totalStepsLastWeek / 7;
                         String stepsStr = "\n";
                         for (Map.Entry<Long, String> entry : stepsThisWeekMap.entrySet()) {
                             stepsStr += entry.getValue() + "\n";
                         }
 
-                        int stepsRemainingToMatchLastWeekAVG = (avgLastweek * (day_of_week_today + 1)) - totalSteps;
+                        int stepsRemainingToMatchLastWeekAVG = (avgLastweek * (day_of_week_today)) - totalSteps;
 
                         String displayText = stepsStr + "\n Total: " + totalSteps + "\n Average: " + avgThisWeek
                                 + "\n\nTotal Last Week: " + totalStepsLastWeek + "\n Average Last Week: " + avgLastweek + "\n";
