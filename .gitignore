@@ -1,3 +1,7 @@
+.gradle
+/local.properties
+.DS_Store
+
 # Built application files
 *.apk
 *.aar
